@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovan Invitation | Digital Wedding Invitations</title>
+<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Kantumruy Pro',sans-serif;color:#29251f;background:#faf8f4}
+header{height:76px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #eee}
+.logo{font-family:'Playfair Display',serif;font-size:25px;color:#9b7950;font-weight:bold}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;color:#51483d;font-size:14px}
+.lang{border:1px solid #b99b70;background:white;padding:8px 14px;border-radius:20px;cursor:pointer}
+.hero{min-height:570px;padding:90px 7%;display:flex;align-items:center;justify-content:space-between;gap:45px;background:linear-gradient(110deg,#f4eee4,#faf8f4)}
+.hero-text{max-width:550px}
+.eyebrow{color:#a17e4e;letter-spacing:3px;font-size:12px;margin-bottom:20px}
+h1{font-family:'Playfair Display',serif;font-size:58px;line-height:1.15;font-weight:600;margin-bottom:22px;color:#45372a}
+.hero p{line-height:1.9;color:#71675b;margin-bottom:30px}
+.btn{display:inline-block;background:#9b7950;color:white;padding:13px 25px;border-radius:3px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.hero-art{width:340px;height:420px;background:#e9ddca;border:9px solid white;box-shadow:0 15px 40px #8c775233;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
+.invite{background:#fffaf1;border:1px solid #c8ad80;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;color:#8d7049}
+.invite small{letter-spacing:3px;font-size:10px}
+.invite strong{font-family:'Playfair Display',serif;font-size:30px;line-height:1.3;margin:20px 0}
+.invite span{font-size:12px;line-height:2}
+section{padding:75px 7%}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-family:'Playfair Display',serif;font-size:36px;color:#4b3d2e;margin-bottom:12px}
+.section-title p{color:#81776a;font-size:14px}
+.templates{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.template{background:white;padding:14px;border:1px solid #eee;text-align:center}
+.template-art{height:270px;background:#f2e9dc;display:flex;align-items:center;justify-content:center;padding:20px}
+.template-art div{background:#fffaf2;border:1px solid #c6aa7d;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#94754c}
+.template-art strong{font-family:'Playfair Display',serif;font-size:24px;margin:15px}
+.template h3{font-size:16px;margin:17px 0 5px}
+.template p{font-size:12px;color:#887e72;margin-bottom:14px}
+.template button{background:white;border:1px solid #b99b70;color:#8b704d;padding:8px 18px;cursor:pointer}
+.steps{background:#f1ece4}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.step{padding:25px}
+.number{font-family:'Playfair Display',serif;font-size:35px;color:#b18b5b;margin-bottom:12px}
+.step h3{margin-bottom:10px;font-size:17px}
+.step p{font-size:13px;color:#81776a;line-height:1.8}
+.about{text-align:center;max-width:750px;margin:auto}
+.about p{color:#81776a;line-height:2;margin:18px 0 28px}
+footer{background:#30291f;color:#eee4d6;padding:35px 7%;text-align:center;font-size:12px;line-height:2}
+footer strong{font-family:'Playfair Display',serif;font-size:22px;color:#d7b98d}
+.modal{display:none;position:fixed;inset:0;background:#0009;align-items:center;justify-content:center;padding:20px;z-index:10}
+.modal-content{background:white;padding:35px;max-width:430px;width:100%;text-align:center;position:relative}
+.modal-content h2{font-family:'Playfair Display',serif;color:#94754c;margin-bottom:15px}
+.modal-content p{color:#71675b;line-height:1.8;margin-bottom:20px}
+.close{position:absolute;right:15px;top:10px;border:0;background:none;font-size:25px;cursor:pointer}
+@media(max-width:750px){
+ header{padding:0 5%;height:65px}
+ nav{gap:12px}nav a{display:none}
+ .hero{padding:60px 7%;flex-direction:column;text-align:center}
+ h1{font-size:42px}.hero-art{width:280px;height:350px}
+ section{padding:55px 6%}
+ .templates,.steps-grid{grid-template-columns:1fr}
+ .template-art{height:300px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">Sovan Invitation</div>
+ <nav>
+  <a href="#home" data-en="Home">ទំព័រដើម</a>
+  <a href="#templates" data-en="Templates">ម៉ូដកាត</a>
+  <a href="#how" data-en="How it works">របៀបប្រើប្រាស់</a>
+  <a href="#about" data-en="About">អំពីយើង</a>
+  <button class="lang" onclick="toggleLang()">EN</button>
+ </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="hero-text">
+  <div class="eyebrow" data-en="MAKE YOUR DAY SPECIAL">បង្កើតថ្ងៃពិសេសរបស់អ្នក</div>
+  <h1 data-en="Your Love Story, Beautifully Invited.">រឿងរ៉ាវស្នេហារបស់អ្នក<br>ជាមួយការអញ្ជើញដ៏ស្រស់ស្អាត</h1>
+  <p data-en="Create elegant digital wedding invitations with a beautiful Khmer touch. Simple, modern and memorable.">បង្កើតកាតអញ្ជើញអាពាហ៍ពិពាហ៍ឌីជីថលដ៏ប្រណិត ជាមួយរចនាបថខ្មែរ។ សាមញ្ញ ទាន់សម័យ និងពោរពេញដោយអនុស្សាវរីយ៍។</p>
+  <a class="btn" href="#templates" data-en="Explore Templates">ស្វែងរកម៉ូដកាត</a>
+ </div>
+ <div class="hero-art">
+  <div class="invite">
+   <small>WEDDING INVITATION</small>
+   <strong>Our<br>Wedding</strong>
+   <span>WITH LOVE & JOY</span>
+   <span>YOU ARE INVITED</span>
+   <span>♡</span>
+  </div>
+ </div>
+</section>
+
+<section id="templates">
+ <div class="section-title">
+  <h2 data-en="Our Collections">ម៉ូដកាតអញ្ជើញរបស់យើង</h2>
+  <p data-en="Find the perfect design for your special day.">ជ្រើសរើសម៉ូដដែលសាកសមសម្រាប់ថ្ងៃដ៏ពិសេសរបស់អ្នក។</p>
+ </div>
+ <div class="templates">
+  <div class="template">
+   <div class="template-art"><div><small>WEDDING INVITATION</small><strong>Classic Love</strong><small>♡ &nbsp; ♡</small></div></div>
+   <h3 data-en="Classic Elegance">ភាពប្រណិតបែបបុរាណ</h3>
+   <p data-en="Timeless and elegant design">រចនាបថស្រស់ស្អាតមិនចេះហួសសម័យ</p>
+   <button onclick="preview('Classic Elegance')" data-en="Preview">មើលគំរូ</button>
+  </div>
+  <div class="template">
+   <div class="template-art" style="background:#e9e2d7"><div><small>TOGETHER FOREVER</small><strong>Golden Dream</strong><small>21 • 11 • 2027</small></div></div>
+   <h3 data-en="Golden Luxury">ប្រណិតពណ៌មាស</h3>
+   <p data-en="A luxurious golden invitation">កាតអញ្ជើញពណ៌មាសដ៏ប្រណិត</p>
+   <button onclick="preview('Golden Luxury')" data-en="Preview">មើលគំរូ</button>
+  </div>
+  <div class="template">
+   <div class="template-art" style="background:#e5e8df"><div><small>THE BEGINNING</small><strong>Modern Love</strong><small>FOREVER STARTS HERE</small></div></div>
+   <h3 data-en="Modern Minimalist">សាមញ្ញបែបទាន់សម័យ</h3>
+   <p data-en="Clean and modern design">រចនាបថស្អាត និងទាន់សម័យ</p>
+   <button onclick="preview('Modern Minimalist')" data-en="Preview">មើលគំរូ</button>
+  </div>
+ </div>
+</section>
+
+<section class="steps" id="how">
+ <div class="section-title">
+  <h2 data-en="How It Works">របៀបប្រើប្រាស់</h2>
+  <p data-en="Your invitation journey in three simple steps.">បង្កើតកាតអញ្ជើញតាមបីជំហានងាយៗ។</p>
+ </div>
+ <div class="steps-grid">
+  <div class="step"><div class="number">01</div><h3 data-en="Choose a Design">ជ្រើសរើសម៉ូដ</h3><p data-en="Explore our invitation collections and choose your favorite.">ស្វែងរកម៉ូដកាត ហើយជ្រើសរើសម៉ូដដែលអ្នកពេញចិត្ត។</p></div>
+  <div class="step"><div class="number">02</div><h3 data-en="Add Your Details">បញ្ចូលព័ត៌មាន</h3><p data-en="Prepare your names, wedding date and venue.">រៀបចំឈ្មោះ កាលបរិច្ឆេទ និងទីតាំងកម្មវិធី។</p></div>
+  <div class="step"><div class="number">03</div><h3 data-en="Share Your Love">ចែករំលែកក្តីស្រឡាញ់</h3><p data-en="Share your beautiful invitation with family and friends.">ចែករំលែកកាតអញ្ជើញដ៏ស្រស់ស្អាតជាមួយគ្រួសារ និងមិត្តភក្តិ។</p></div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="about">
+  <div class="section-title"><h2 data-en="About Sovan Invitation">អំពី Sovan Invitation</h2></div>
+  <p data-en="Sovan Invitation is a digital invitation concept designed to make special celebrations more beautiful and convenient. We bring together modern simplicity and Khmer-inspired elegance.">Sovan Invitation គឺជាគំនិតបង្កើតកាតអញ្ជើញឌីជីថល ដើម្បីធ្វើឱ្យពិធីពិសេសរបស់អ្នកកាន់តែស្រស់ស្អាត និងងាយស្រួល។ យើងរួមបញ្ចូលភាពសាមញ្ញទាន់សម័យជាមួយសោភ័ណភាពបែបខ្មែរ។</p>
+  <a href="#templates" class="btn" data-en="Discover Designs">ស្វែងរកម៉ូដកាត</a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <strong>Sovan Invitation</strong>
+ <p data-en="Beautiful invitations for your beautiful moments.">កាតអញ្ជើញដ៏ស្រស់ស្អាត សម្រាប់ពេលវេលាដ៏មានន័យរបស់អ្នក។</p>
+ <p>© 2026 Sovan Invitation. All rights reserved.</p>
+</footer>
+
+<div class="modal" id="modal">
+ <div class="modal-content">
+  <button class="close" onclick="closeModal()">×</button>
+  <h2 id="modalTitle">Invitation Preview</h2>
+  <p data-en="This is a sample design preview. The invitation creation feature will be added in a future update.">នេះជាគំរូសម្រាប់មើលរចនាបថ។ មុខងារបង្កើតកាតអញ្ជើញនឹងត្រូវបន្ថែមនៅជំនាន់បន្ទាប់។</p>
+  <button class="btn" onclick="closeModal()" data-en="Close">បិទ</button>
+ </div>
+</div>
+
+<script>
+let english=false;
+function toggleLang(){
+ english=!english;
+ document.querySelectorAll('[data-en]').forEach(el=>{
+  if(!el.dataset.km) el.dataset.km=el.innerHTML;
+  el.innerHTML=english?el.dataset.en:el.dataset.km;
+ });
+ document.querySelector('.lang').textContent=english?'ខ្មែរ':'EN';
+ document.documentElement.lang=english?'en':'km';
+}
+function preview(name){
+ document.getElementById('modalTitle').textContent=name;
+ document.getElementById('modal').style.display='flex';
+}
+function closeModal(){
+ document.getElementById('modal').style.display='none';
+}
+window.onclick=function(e){
+ if(e.target===document.getElementById('modal')) closeModal();
+}
+</script>
+</body>
+</html>
+
