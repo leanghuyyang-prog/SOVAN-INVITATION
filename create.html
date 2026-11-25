@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Invitation | Sovan Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f8f5ef;color:#40372d;font-family:'Kantumruy Pro',sans-serif}
+header{height:70px;background:white;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
+.logo{font: bold 24px 'Playfair Display',serif;color:#a17e4e;text-decoration:none}
+.back{color:#8c704c;text-decoration:none;font-size:14px}
+main{max-width:1150px;margin:45px auto;padding:0 20px}
+.heading{text-align:center;margin-bottom:35px}
+.heading h1{font:600 36px 'Playfair Display',serif;color:#705537;margin:0 0 10px}
+.heading p{color:#82776a}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.panel{background:white;border:1px solid #eee;padding:25px;border-radius:8px}
+.panel h2{font-size:20px;margin:0 0 22px;color:#876b47}
+label{display:block;font-size:13px;margin:14px 0 7px}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ded7cd;border-radius:4px;font:14px 'Kantumruy Pro',sans-serif;background:#fff}
+textarea{resize:vertical;min-height:70px}
+button{font-family:inherit;cursor:pointer}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{border:0;background:#9b7950;color:white;padding:12px 18px;border-radius:4px;font-size:13px}
+.btn.secondary{background:#eee8df;color:#6d573a}
+.preview-wrap{background:#eee8dd;padding:22px;border-radius:8px}
+.preview-title{text-align:center;color:#8d7656;font-size:13px;margin:0 0 15px}
+.card{background:#fffaf1;border:10px solid white;outline:1px solid #d7c3a0;min-height:500px;padding:25px;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 8px 25px #69553a18}
+.card-inner{border:1px solid #c7a777;width:100%;min-height:430px;padding:30px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#967348}
+.card small{letter-spacing:3px;font-size:10px}
+.card h2{font:600 34px 'Playfair Display',serif;margin:22px 0;color:#84633b}
+.card .names{font-size:22px;font-weight:600;line-height:1.8;margin:10px 0}
+.card .heart{font-size:23px;margin:4px}
+.card .details{font-size:13px;line-height:2;margin-top:12px}
+.note{text-align:center;color:#887c6d;font-size:12px;margin-top:15px;line-height:1.8}
+footer{text-align:center;padding:30px;color:#988d7e;font-size:12px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}main{margin:25px auto}.heading h1{font-size:29px}.card{min-height:450px}.card-inner{min-height:390px}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">Sovan Invitation</a>
+<a class="back" href="index.html">← Back to Home</a>
+</header>
+<main>
+<div class="heading">
+<h1>Create Your Invitation</h1>
+<p>បង្កើតកាតអញ្ជើញអាពាហ៍ពិពាហ៍ដ៏ស្រស់ស្អាតរបស់អ្នក</p>
+</div>
+<div class="layout">
+<div class="panel">
+<h2>ព័ត៌មានអាពាហ៍ពិពាហ៍</h2>
+<label for="groom">ឈ្មោះកូនកំលោះ / Groom</label>
+<input id="groom" value="យ៉ាង លាងហ៊ុយ" placeholder="បញ្ចូលឈ្មោះកូនកំលោះ">
+<label for="bride">ឈ្មោះកូនក្រមុំ / Bride</label>
+<input id="bride" value="លៀង គីមហួយ" placeholder="បញ្ចូលឈ្មោះកូនក្រមុំ">
+<label for="date">ថ្ងៃរៀបការ / Wedding date</label>
+<input id="date" type="date" value="2027-11-21">
+<label for="time">ម៉ោង / Time</label>
+<input id="time" type="time" value="17:00">
+<label for="venue">ទីតាំង / Venue</label>
+<textarea id="venue">គេហដ្ឋានខាងស្រី</textarea>
+<label for="message">សារអញ្ជើញ / Invitation message</label>
+<textarea id="message">សូមគោរពអញ្ជើញលោក លោកស្រី និងភ្ញៀវកិត្តិយស ចូលរួមជាអធិបតីក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ។</textarea>
+<label for="style">រចនាបថ / Style</label>
+<select id="style">
+<option value="gold">Classic Gold</option>
+<option value="green">Modern Green</option>
+<option value="rose">Romantic Rose</option>
+</select>
+<div class="actions">
+<button class="btn" onclick="downloadPNG()">Download PNG</button>
+<button class="btn secondary" onclick="downloadPDF()">Download PDF</button>
+<button class="btn secondary" onclick="shareLink()">Copy Share Link</button>
+</div>
+<p class="note">ព័ត៌មានរបស់អ្នកនឹងបង្ហាញលើកាត Preview ភ្លាមៗ។</p>
+</div>
+<div>
+<div class="preview-wrap">
+<p class="preview-title">LIVE INVITATION PREVIEW</p>
+<div class="card" id="invitation">
+<div class="card-inner" id="cardInner">
+<small>WEDDING INVITATION</small>
+<h2>Our Wedding</h2>
+<div class="names"><span id="showGroom">យ៉ាង លាងហ៊ុយ</span><br><span class="heart">♥</span><br><span id="showBride">លៀង គីមហួយ</span></div>
+<div class="details">
+<div id="showDate">21 November 2027</div>
+<div id="showTime">5:00 PM</div>
+<div id="showVenue">គេហដ្ឋានខាងស្រី</div>
+</div>
+<p id="showMessage" style="font-size:12px;line-height:1.8;margin-top:18px">សូមគោរពអញ្ជើញលោក លោកស្រី និងភ្ញៀវកិត្តិយស ចូលរួមជាអធិបតីក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ។</p>
+</div>
+</div>
+</div>
+<p class="note">Preview នេះជាគំរូកាតឌីជីថល។ សូមពិនិត្យព័ត៌មានមុនពេលទាញយក។</p>
+</div>
+</div>
+</main>
+<footer>© 2026 Sovan Invitation · Made with Love</footer>
+<script>
+const $=id=>document.getElementById(id);
+function updatePreview(){
+$('showGroom').textContent=$('groom').value||'Groom Name';
+$('showBride').textContent=$('bride').value||'Bride Name';
+$('showVenue').textContent=$('venue').value;
+$('showMessage').textContent=$('message').value;
+const d=$('date').value;
+$('showDate').textContent=d?new Date(d+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'Wedding Date';
+const t=$('time').value;
+if(t){let [h,m]=t.split(':').map(Number);let ap=h>=12?'PM':'AM';$('showTime').textContent=((h%12)||12)+':'+String(m).padStart(2,'0')+' '+ap;}else{$('showTime').textContent='Wedding Time';}
+const style=$('style').value;
+const colors={gold:['#fffaf1','#c7a777','#967348'],green:['#f4f7ef','#879a78','#526b4e'],rose:['#fff4f3','#d6a0a0','#a56f75']};
+const c=colors[style];
+$('cardInner').style.background=c[0];
+$('cardInner').style.borderColor=c[1];
+$('cardInner').style.color=c[2];
+$('cardInner').querySelector('h2').style.color=c[2];
+}
+document.querySelectorAll('input,textarea,select').forEach(el=>el.addEventListener('input',updatePreview));
+document.querySelectorAll('select').forEach(el=>el.addEventListener('change',updatePreview));
+updatePreview();
+async function downloadPNG(){
+if(!window.html2canvas){alert('PNG library is not loaded. Please check your internet connection.');return;}
+try{const canvas=await html2canvas($('invitation'),{scale:2,backgroundColor:'#eee8dd'});
+const a=document.createElement('a');a.download='Sovan-Wedding-Invitation.png';a.href=canvas.toDataURL('image/png');a.click();}
+catch(e){alert('Could not create PNG. Please try again.');}
+}
+async function downloadPDF(){
+if(!window.html2canvas||!window.jspdf){alert('PDF library is not loaded. Please check your internet connection.');return;}
+try{const canvas=await html2canvas($('invitation'),{scale:2,backgroundColor:'#eee8dd'});
+const img=canvas.toDataURL('image/png');const {jsPDF}=window.jspdf;
+const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a5'});
+const w=pdf.internal.pageSize.getWidth()-20;const h=canvas.height*w/canvas.width;
+pdf.addImage(img,'PNG',10,10,w,h);pdf.save('Sovan-Wedding-Invitation.pdf');}
+catch(e){alert('Could not create PDF. Please try again.');}
+}
+function shareLink(){
+const data={g:$('groom').value,b:$('bride').value,d:$('date').value,t:$('time').value,v:$('venue').value,m:$('message').value,s:$('style').value};
+const url=new URL(location.href);url.searchParams.set('invite',btoa(unescape(encodeURIComponent(JSON.stringify(data)))));
+navigator.clipboard.writeText(url.href).then(()=>alert('Share link copied!')).catch(()=>prompt('Copy this invitation link:',url.href));
+}
+function loadShared(){
+const code=new URLSearchParams(location.search).get('invite');
+if(!code)return;
+try{const d=JSON.parse(decodeURIComponent(escape(atob(code))));
+$('groom').value=d.g||'';$('bride').value=d.b||'';$('date').value=d.d||'';$('time').value=d.t||'';$('venue').value=d.v||'';$('message').value=d.m||'';$('style').value=d.s||'gold';updatePreview();}
+catch(e){console.log('Invalid invitation link');}
+}
+loadShared();
+</script>
+</body>
+</html>
